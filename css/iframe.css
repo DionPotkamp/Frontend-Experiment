@@ -1,0 +1,437 @@
+/* 
+		Main
+ */
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	
+	overflow: hidden;
+}
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+		
+	font-family: Verdana, Arial, sans-serif;
+	text-align: left;
+	font-weight: normal;
+	font-size: 1vw;
+	color: rgb(33, 17, 3);
+	
+	background-color: transparent;
+}
+a {
+	color: rgb(0, 0, 102);
+	text-decoration: none;
+}
+a:hover {
+	color: rgb(0, 0, 153);
+	text-decoration: underline;
+}
+a:active {
+	color: rgb(51, 51, 255);
+	text-decoration: underline overline;
+}
+a:visited {
+	color: rgb(0, 0, 102);
+	text-decoration: none;
+}
+
+/* 
+		Algemene content iframe
+		+ animaties
+ */
+#section {
+	width: 100%;
+	height: 75%;
+	margin-top: 0;
+	padding-bottom: 2%;
+	display: block;
+	position: relative;
+	z-index: 1;
+	
+	background-color: rgba(198, 222, 166, 0.5);
+	transition: all 1s ease;
+		-webkit-transition: all 1s ease;
+	animation: section 1s cubic-bezier(.26,.28,0,.99) 1 both;
+		-webkit-animation: section 1s cubic-bezier(.26,.28,0,.99) 1 both;
+}
+@keyframes section {
+	0%		{top:100%;opacity:0;}
+	100%	{top:0;opacity:1;}
+}
+	@-webkit-keyframes section {
+		0%		{top:100%;opacity:0;}
+		100%	{top:0;opacity:1;}
+	}
+
+
+#article {
+	width: 90%;
+	margin-left: 5%;
+	display: inline-block;
+	position: relative;	
+	
+	font-size: 1.5vw;
+}
+.articlew {
+	height: 100%;
+}
+#achtergrondiframe {
+	width: 110%;
+	height:110%;
+	position: fixed;
+	display: block;
+	z-index:-99;
+	filter:blur(5px);
+	transition: blur 1s cubic-bezier(.26,.28,0,.99);
+}
+#showbg {
+	position: fixed;
+	visibility: hidden;
+}
+#showachtergrond {
+	display: block;
+	position: fixed;
+	top: 5%;
+	right: 3%;
+	padding: 1%;
+	z-index: 5;
+	
+	border: 1px solid rgb(33, 17, 3);
+	border-radius: 15px;
+	background-color: rgba(33, 17, 3, 0.1);
+	cursor: pointer;
+}
+#showachtergrond:hover {
+	background-color: rgba(33, 17, 3, 0.2);
+	box-shadow: 3px 4px 3px rgba(33, 17, 3, 0.2);
+}
+#showachtergrond:active {
+	transform: translateY(2px);
+	box-shadow: 3px 4px 3px rgba(33, 17, 3, 0.4);
+}
+
+#showbg:checked ~ #achtergrondiframe {
+	animation: imgshow 3s cubic-bezier(.26,.28,0,.99) 0s 1 both;
+		-webkit-animation: imgshow 3s cubic-bezier(.26,.28,0,.99) 0s 1 both;
+}
+@keyframes imgshow {
+	0%		{filter:blur(5px);}
+	100%	{filter:blur(0px);}
+}
+	@-webkit-keyframes imgshow {
+		0%		{filter:blur(5px);}
+		100%	{filter:blur(0px);}
+	}
+
+#showbg:checked ~ #section {
+	animation: sectiondisapear 1s cubic-bezier(.26,.28,0,.99) 1 both;
+		-webkit-animation: sectiondisapear 1s cubic-bezier(.26,.28,0,.99) 1 both;
+}
+@keyframes sectiondisapear {
+	0%		{bottom: 0;opacity:1;}
+	100%	{bottom: -100%;opacity:0;}
+}
+	@-webkit-keyframes sectiondisapear {
+		0%		{bottom: 0;opacity:1;}
+		100%	{bottom: -100%;opacity:0;}
+	}
+
+/* 
+		Iframes pagina titels
+ */
+#pagetitle {
+	width: 70%;
+	margin-bottom: 1%;
+	margin-left: 4%;
+	position: relative;
+	
+	font-family:Lobster;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 9vw;
+	
+	animation: atitle 1s cubic-bezier(.26,.28,0,.99) 1 both;
+		-webkit-animation: atitle 1s cubic-bezier(.26,.28,0,.99) 1 both;
+}
+.titledark {
+	color: rgb(51, 51, 153);
+}
+.titlelight {
+	color: rgb(255, 255, 255);
+}
+.titlespace1 {
+	margin: -2% 0 0 4%;
+}
+#pagetitleds {
+	margin: 0 0 -1% 4%;
+	position: relative;
+	
+	font-family:Lobster;
+	color: rgb(51, 51, 153);
+	font-weight: bold;
+	font-size: 9vw;
+	
+	transition: all 0.2s ease-in-out;
+	animation: atitle 1s cubic-bezier(.26,.28,0,.99) 1 both;
+		-webkit-animation: atitle 1s cubic-bezier(.26,.28,0,.99) 1 both;
+}
+
+@keyframes atitle {
+	0%		{top:-100%;opacity:0;}
+	100%	{top:0;opacity:1;}
+}
+	@-webkit-keyframes atitle {
+		0%		{top:-100%;opacity:0;}
+		100%	{top:0;opacity:1;}
+	}
+
+/* 
+		Index welkom pagina
+ */
+ .tab {
+	width: 100%;
+	height: 25%;
+	padding-left: 1%;
+	
+	position: relative;
+	
+	text-align: left;
+}
+.tabtitle {
+	width: 25%;
+	height: 40%;
+	margin: 0;
+	margin: 3% 0 0 0;
+	position: relative;
+	float: left;
+	
+	font-size: 2vw;
+}
+.place {
+	font-style: italic;
+	font-size: 1.4vw;
+}
+.tabintro {
+	width: 50%;
+	margin-top: 5px;
+	position: relative;
+	float: left;
+	
+	line-height: 150%;
+}
+#tab1 {
+	padding-left: 3%;
+	margin-bottom: 1%;
+	
+	border-radius: 0 15px 0 0;
+	background-color: rgba(255,255,255,0.4);
+}
+#imgwindsurfing1 {
+	width: 100%;
+	height: 100%;
+	
+	background: url('../images/windsurfing1.png') 100%/100% no-repeat;
+	
+	transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+}
+#tab2 {
+	padding-left: 3%;
+	margin-bottom: 1%;
+}
+#imgmountain1 {
+	width: 100%;
+	height: 100%;
+	
+	background: url('../images/mountain1.png') 100%/100% no-repeat;
+	
+	transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+}
+#tab3 {
+	padding-left: 3%;
+	
+	border-radius: 0 0 15px 0;
+	background-color: rgba(255,255,255,0.4);
+}
+#imgsnorkeling1 {
+	width: 100%;
+	height: 100%;
+	
+	background: url('../images/snorkeling1.png') 100%/100% no-repeat;
+	
+	transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+}
+.borderrt {
+	border-radius: 0 10px 0 0;
+}
+.borderrb {
+	border-radius: 0 0 10px 0;
+}
+.img {
+	width: 25%;
+	height: 100%;
+	position: relative;
+	float: right;
+	overflow: hidden;
+}
+.img:hover .imghover{
+	transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+}
+/* 
+		Reispakketten pagina opmaak
+		Overig pagina opmaak
+ */
+#place {
+	padding: 5px 20px;
+	margin-bottom: 3%;
+	
+	font-size: 150%;
+	text-align: center;
+}
+#placew {
+	padding: 5px 20px;
+	margin-bottom: 1%;
+	
+	font-size: 120%;
+	text-align: center;
+}
+#price {
+	margin-left: 1%;
+}
+#pp {
+	font-size: 1.1vw;
+}
+.spacer {
+	padding-top: 2%;
+}
+
+/* 
+		Contact formulier
+ */
+#formulier {
+	width: 40%;
+	margin: 0 auto;
+	
+	border-radius:10px;
+	
+	color: rgba(51, 51, 153, 1);
+}
+fieldset {
+	border: none;
+}
+textarea {
+	resize: vertical;
+}
+input:focus, textarea:focus {
+	outline: none;
+	border-bottom: 1px solid red;
+}
+#formtitle {
+	margin-bottom: 4%;
+	
+	font-size: 1.7vw;
+	font-weight: bold;
+}
+#name, #email, #comment {
+	width: 100%;
+	padding: 10px 0;
+	
+	border: none;
+	
+	text-align: center;
+	font-size: 1.4vw;
+}
+#name {
+	border-bottom: 1px solid gray;
+	border-radius: 10px 10px 0 0;
+}
+#email {
+	border-bottom: 1px solid gray;
+}
+#comment {
+	max-width: 100%;
+	min-height: 7%;
+	max-height: 10%;
+	margin-bottom: 3%;
+	
+	border-bottom: 1px solid gray;
+	border-radius: 0 0 10px 10px;
+	
+	transition: all 0.2s cubic-bezier(.26,.28,0,.99);
+		-webkit-transition: all 0.2s cubic-bezier(.26,.28,0,.99);
+}
+#submit {
+	width: 25%;
+	padding: 5px 0 5px 0;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+	box-shadow: 1px 1px 4px gray;
+	
+	background-color: rgba(51, 51, 153, 0);
+	cursor: pointer;
+	
+	font-size: 1.3vw;
+	font-weight: bold;
+	
+	transition: all 0.2s linear;
+		-webkit-transition: all 0.2s linear;
+}
+#submit:hover {
+	box-shadow: 3px 4px 3px gray;
+}
+::placeholder {
+	color: rgba(51, 51, 153,1);
+}
+input:hover::placeholder, textarea:hover::placeholder,
+input:focus::placeholder, textarea:focus::placeholder {
+	color: rgba(51, 51, 153,0.5);
+}
+
+/* 
+		Zooming pictures
+ */
+#img {
+	width: 70%;
+	height: 60%;
+	position: relative;
+	display: block;
+	margin: 1% auto;
+	overflow: hidden;
+	
+	border-radius: 0 0 0 0;
+}
+#imgz {
+	width: 100%;
+	
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+#img:hover #imgz{
+	transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+}
+/* 
+		Custom fonts
+ */
+@font-face {
+	font-family:DirtyQueen;
+	src: url(Dirty%20Queen.ttf);
+}
+@font-face {
+	font-family:Hunter;
+	src: url(Hunters.otf);
+}
+@font-face {
+	font-family: Lobster;
+	src: url(Lobster%201.4.otf);
+}
